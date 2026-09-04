@@ -4,10 +4,8 @@ from PIL import Image
 import sys
 import scipy.io
 
-# ---------------------------------------------------------
 # [Insert your 3 functions here: myNearestNeighborInterpolation, 
 #  myBilinearInterpolation, myBicubicInterpolation]
-# ---------------------------------------------------------
 
 from q1b import myNearestNeighborInterpolation
 from q1c import myBilinearInterpolation
@@ -50,10 +48,7 @@ diff_nni = img_original.astype(float) - img_nni.astype(float)
 diff_bilinear = img_original.astype(float) - img_bilinear.astype(float)
 diff_bicubic = img_original.astype(float) - img_bicubic.astype(float)
 
-# ==========================================
-# PLOTTING 1: Original and Enlarged Images
-# ==========================================
-# Use the same color limits based on the original image
+#  Original and Enlarged Images
 vmin_img, vmax_img = img_original.min(), img_original.max()
 
 fig1, axes1 = plt.subplots(1, 4, figsize=(20, 5))
@@ -71,9 +66,7 @@ plt.tight_layout()
 plt.savefig("./img/q1f_ct_enlarged_comparison.png")
 # plt.show()
 
-# ==========================================
 # PLOTTING 2: Difference Images
-# ==========================================
 # Find global min and max across ALL difference images to ensure uniform limits
 vmin_diff = min(diff_nni.min(), diff_bilinear.min(), diff_bicubic.min())
 vmax_diff = max(diff_nni.max(), diff_bilinear.max(), diff_bicubic.max())
